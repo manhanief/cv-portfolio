@@ -97,17 +97,19 @@ Widget bulletList(BuildContext context, String text) {
 Widget _labelledLine(String line, TextStyle? style) {
   final parts = splitLabel(line);
   if (parts == null) return Text(line, style: style);
+  // Complete styles on each span: the web renderer drops a bare
+  // `TextStyle(fontWeight: ...)` child merged into an `inherit: false` parent.
+  final base = style ?? const TextStyle();
   return Text.rich(
     TextSpan(
       children: [
         TextSpan(
           text: parts.$1,
-          style: const TextStyle(fontWeight: FontWeight.w700),
+          style: base.copyWith(fontWeight: FontWeight.w700),
         ),
-        TextSpan(text: parts.$2),
+        TextSpan(text: parts.$2, style: base),
       ],
     ),
-    style: style,
   );
 }
 

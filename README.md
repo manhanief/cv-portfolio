@@ -55,7 +55,7 @@ add a service account key once:
 ### Manual deploy
 
 ```bash
-flutter build web --wasm --release && firebase deploy --only hosting
+flutter build web --release && firebase deploy --only hosting
 firebase deploy --only firestore:rules     # after editing firestore.rules
 ```
 

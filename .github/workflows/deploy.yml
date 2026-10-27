@@ -27,7 +27,7 @@ jobs:
       - run: flutter pub get
       - run: flutter analyze
       - run: flutter test
-      - run: flutter build web --wasm --release
+      - run: flutter build web --release
 
       - name: Deploy to live site
         if: github.event_name == 'push' && env.HAS_SERVICE_ACCOUNT == 'true'
