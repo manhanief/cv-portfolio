@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <base href="$FLUTTER_BASE_HREF">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- SEO + link previews. Flutter renders to a canvas, so crawlers and
+       social cards rely on these tags. Update them with your details. -->
+  <title>Esman Hanief – IT, Software Dev, AI Engineer</title>
+  <meta name="description" content="CV and portfolio of Esman Hanief: IT Executive and System Developer (Flutter, Laravel, Microsoft 365, AI) in Rawang, Selangor.">
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="Esman Hanief – IT, Software Dev, AI Engineer">
+  <meta property="og:description" content="CV and portfolio: experience, projects and skills.">
+  <meta property="og:image" content="icons/Icon-512.png">
+  <meta name="twitter:card" content="summary">
+  <meta name="theme-color" content="#2B5F8E">
+
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="CV">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+  <link rel="icon" type="image/png" href="favicon.png"/>
+  <link rel="manifest" href="manifest.json">
+
+  <style>
+    /* Shown until Flutter paints its first frame. */
+    body { margin: 0; background: #f8f9fc; font-family: system-ui, sans-serif; }
+    @media (prefers-color-scheme: dark) { body { background: #111318; color: #e2e2e9; } }
+    #loader { position: fixed; inset: 0; display: grid; place-items: center; }
+    #loader div { width: 36px; height: 36px; border-radius: 50%;
+      border: 3px solid #2B5F8E33; border-top-color: #2B5F8E;
+      animation: spin 0.8s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+  </style>
+</head>
+<body>
+  <div id="loader" aria-label="Loading"><div></div></div>
+  <noscript>
+    <h1>Esman Hanief</h1>
+    <p>IT, Software Dev, AI Engineer. Please enable JavaScript to view this CV.</p>
+  </noscript>
+  <script>
+    window.addEventListener('flutter-first-frame', () =>
+      document.getElementById('loader')?.remove());
+  </script>
+  <script src="flutter_bootstrap.js" async></script>
+</body>
+</html>
