@@ -246,7 +246,7 @@ class _CompanyLine extends ConsumerWidget {
     final l10n = AppLocalizations.of(context);
     final theme = Theme.of(context);
     final companyStyle = theme.textTheme.bodyMedium?.copyWith(
-        color: theme.colorScheme.primary, fontWeight: FontWeight.w600);
+        color: theme.colorScheme.primary, fontWeight: FontWeight.w700);
     final muted = theme.textTheme.bodyMedium
         ?.copyWith(color: theme.colorScheme.onSurfaceVariant);
 

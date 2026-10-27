@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 abstract final class AppTheme {
   static const _seed = Color(0xFF2B5F8E);
@@ -10,9 +9,9 @@ abstract final class AppTheme {
   static ThemeData _build(Brightness brightness) {
     final scheme =
         ColorScheme.fromSeed(seedColor: _seed, brightness: brightness);
-    final base = ThemeData(colorScheme: scheme, useMaterial3: true);
+    final base =
+        ThemeData(colorScheme: scheme, useMaterial3: true, fontFamily: 'Inter');
     return base.copyWith(
-      textTheme: GoogleFonts.interTextTheme(base.textTheme),
       scaffoldBackgroundColor: scheme.surfaceContainerLowest,
       cardTheme: CardThemeData(
         elevation: 0,

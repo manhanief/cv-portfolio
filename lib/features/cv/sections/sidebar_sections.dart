@@ -78,7 +78,7 @@ class CertificationsSection extends ConsumerWidget {
               value: c.name,
               placeholder: l10n.hCertification,
               style: theme.textTheme.bodyMedium
-                  ?.copyWith(fontWeight: FontWeight.w600),
+                  ?.copyWith(fontWeight: FontWeight.w700),
               onSave: (v) => onChanged(c.copyWith(name: v)),
             ),
             Row(
@@ -139,7 +139,7 @@ class LanguagesSection extends ConsumerWidget {
                 value: lang.name,
                 placeholder: l10n.hLanguage,
                 style: theme.textTheme.bodyMedium
-                    ?.copyWith(fontWeight: FontWeight.w600),
+                    ?.copyWith(fontWeight: FontWeight.w700),
                 onSave: (v) => onChanged(lang.copyWith(name: v)),
               ),
             ),

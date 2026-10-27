@@ -1,1 +1,60 @@
-{"firestore":{"rules":"firestore.rules"},"hosting":{"site":"esman-hanief","public":"build/web","ignore":["firebase.json","**/.*","**/node_modules/**"],"rewrites":[{"source":"**","destination":"/index.html"}],"headers":[{"source":"**/*.@(js|wasm|mjs|png|jpg|svg|ttf|otf|woff2)","headers":[{"key":"Cache-Control","value":"public, max-age=604800"}]},{"source":"**/@(index.html|flutter_service_worker.js|flutter_bootstrap.js|version.json)","headers":[{"key":"Cache-Control","value":"no-cache"}]}]},"flutter":{"platforms":{"android":{"default":{"projectId":"test-4e52f","appId":"1:712058852683:android:2162a1357c1e477c22c4ce","fileOutput":"android/app/google-services.json"}},"dart":{"lib/firebase_options.dart":{"projectId":"test-4e52f","configurations":{"android":"1:712058852683:android:2162a1357c1e477c22c4ce","web":"1:712058852683:web:9576ebb44237ea2822c4ce"}}}}}}
+{
+  "firestore": {
+    "rules": "firestore.rules"
+  },
+  "hosting": {
+    "site": "esman-hanief",
+    "public": "build/web",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ],
+    "headers": [
+      {
+        "source": "**/*.@(js|mjs|wasm|json|html)",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "no-cache"
+          }
+        ]
+      },
+      {
+        "source": "**/*.@(png|jpg|svg|ico|ttf|otf|woff2)",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=86400"
+          }
+        ]
+      }
+    ]
+  },
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "test-4e52f",
+          "appId": "1:712058852683:android:2162a1357c1e477c22c4ce",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "test-4e52f",
+          "configurations": {
+            "android": "1:712058852683:android:2162a1357c1e477c22c4ce",
+            "web": "1:712058852683:web:9576ebb44237ea2822c4ce"
+          }
+        }
+      }
+    }
+  }
+}

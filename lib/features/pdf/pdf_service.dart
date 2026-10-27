@@ -1,5 +1,6 @@
 import 'dart:typed_data';
 
+import 'package:flutter/services.dart' show rootBundle;
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
 import 'package:printing/printing.dart';
@@ -207,16 +208,14 @@ Future<Uint8List> buildCvPdf(
   return doc.save();
 }
 
+/// Uses the bundled Inter font, so PDFs render identically offline.
 Future<pw.ThemeData> _theme() async {
-  try {
-    return pw.ThemeData.withFont(
-      base: await PdfGoogleFonts.interRegular(),
-      bold: await PdfGoogleFonts.interBold(),
-    );
-  } catch (_) {
-    // Offline: fall back to the built-in Helvetica.
-    return pw.ThemeData();
-  }
+  Future<pw.Font> font(String weight) async =>
+      pw.Font.ttf(await rootBundle.load('assets/fonts/Inter-$weight.ttf'));
+  return pw.ThemeData.withFont(
+    base: await font('Regular'),
+    bold: await font('Bold'),
+  );
 }
 
 Future<pw.ImageProvider?> _photo(String? url) async {

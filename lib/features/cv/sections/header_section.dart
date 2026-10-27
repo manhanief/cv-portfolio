@@ -41,7 +41,7 @@ class HeaderSection extends ConsumerWidget {
                 textAlign: align,
                 validator: Validators.required(l10n),
                 style: theme.textTheme.headlineSmall
-                    ?.copyWith(fontWeight: FontWeight.w800),
+                    ?.copyWith(fontWeight: FontWeight.w700),
                 onSave: (v) => ref.updateProfile((p) => p.copyWith(name: v)),
               ),
               const SizedBox(height: 4),
