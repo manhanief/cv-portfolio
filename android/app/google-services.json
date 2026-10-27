@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "712058852683",
+    "project_id": "test-4e52f",
+    "storage_bucket": "test-4e52f.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:712058852683:android:2162a1357c1e477c22c4ce",
+        "android_client_info": {
+          "package_name": "com.esmanhanief.cv_portfolio"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB4dGvvmyM-5PK5g4fr5akmk-gLNRGmV84"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

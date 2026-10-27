@@ -26,35 +26,47 @@ dart run build_runner build --delete-conflicting-outputs
 flutter gen-l10n
 ```
 
-## Firebase setup (one time)
+## Firebase
 
-1. Create a project in the [Firebase console](https://console.firebase.google.com).
-2. Connect the app (this overwrites `lib/firebase_options.dart`):
-   ```bash
-   dart pub global activate flutterfire_cli
-   flutterfire configure --project=<project-id> --platforms=web,android,ios
-   ```
-3. **Authentication** → enable *Email/Password* → *Users* → add your admin account.
-   Then *Settings → User actions* → turn **off** "Enable create (sign-up)".
-4. **Firestore** → create database → add a document `admins/<your-UID>` (any field, e.g. `role: "owner"`).
-   That document is what makes an account an admin, both in the app and in the security rules.
-5. **Storage** → get started (used for the profile photo).
-6. Deploy rules and site:
-   ```bash
-   firebase use <project-id>
-   firebase deploy --only firestore:rules,storage
-   flutter build web --wasm --release
-   firebase deploy --only hosting
-   ```
+Live site: **https://esman-hanief.web.app** (project `test-4e52f`, hosting site `esman-hanief`).
+Firestore rules and hosting are already deployed. Remaining one-time steps in the
+[Firebase console](https://console.firebase.google.com/project/test-4e52f):
 
-On the first admin login the sample content in `lib/data/seed_data.dart` is
-written to `cv/main`; from then on Firestore is the source of truth.
+1. **Authentication** → *Get started* → enable **Email/Password**.
+2. *Users* → **Add user** with your admin email and a strong password. Copy the **User UID**.
+3. *Settings → User actions* → turn **off** "Enable create (sign-up)" so nobody else can register.
+4. **Firestore Database** → *Start collection* `admins` → document ID = your **UID** → any field (e.g. `role: "owner"`).
+   That document is what makes an account an admin, in the app and in the security rules.
+5. Open the site → lock icon (or `Ctrl/Cmd + Shift + E`) → sign in. Your first login copies
+   `lib/data/seed_data.dart` into `cv/main`; from then on, edit on the page.
 
-## Security model
+Profile photos are stored inline in the CV document (resized to ~400px, max 300 KB)
+so the project stays on the free Spark plan. Cloud Storage would require Blaze.
 
-- Everyone can read `cv/main`. Only UIDs listed in `/admins` can write (`firestore.rules`).
-- Photo uploads: admins only, images only, under 2 MB (`storage.rules`).
-- Hiding buttons in the UI is not security. The rules are enforced server-side.
+### Automatic deploys (GitHub Actions)
+
+`.github/workflows/deploy.yml` runs analyze → test → build on every push and PR.
+Pushes to `main` deploy to the live site; PRs get a 7-day preview URL. To enable deploys,
+add a service account key once:
+
+1. Firebase console → *Project settings* → *Service accounts* → **Generate new private key**.
+2. `gh secret set FIREBASE_SERVICE_ACCOUNT < path/to/key.json`, then **delete the key file**.
+
+### Manual deploy
+
+```bash
+flutter build web --wasm --release && firebase deploy --only hosting
+firebase deploy --only firestore:rules     # after editing firestore.rules
+```
+
+### iOS
+
+Not configured yet (flutterfire needs the `xcodeproj` gem). Until then iOS runs in demo mode.
+
+```bash
+gem install xcodeproj
+flutterfire configure --project=test-4e52f --platforms=web,android,ios
+```
 
 ## Structure
 
