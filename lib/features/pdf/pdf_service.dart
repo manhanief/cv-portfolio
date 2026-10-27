@@ -7,6 +7,7 @@ import 'package:printing/printing.dart';
 import '../../data/models/cv_data.dart';
 import '../../data/models/localized_text.dart';
 import '../../l10n/gen/app_localizations.dart';
+import '../cv/sections/section_card.dart' show splitLabel;
 import '../editing/inline_fields.dart' show formatRange;
 
 /// Builds the CV PDF and hands it to the platform (download on web,
@@ -46,11 +47,21 @@ Future<Uint8List> buildCvPdf(
 
   List<pw.Widget> bullets(String text) => [
         for (final line in text.split('\n').where((l) => l.trim().isNotEmpty))
-          pw.Bullet(
-            text: line.trim(),
-            style: const pw.TextStyle(fontSize: 10),
-            bulletSize: 3,
-            bulletMargin: const pw.EdgeInsets.only(top: 4, right: 6),
+          pw.Padding(
+            padding: const pw.EdgeInsets.only(bottom: 2),
+            child: pw.Row(
+              crossAxisAlignment: pw.CrossAxisAlignment.start,
+              children: [
+                pw.Container(
+                  width: 3,
+                  height: 3,
+                  margin: const pw.EdgeInsets.only(top: 5, left: 2, right: 7),
+                  decoration: const pw.BoxDecoration(
+                      color: PdfColors.black, shape: pw.BoxShape.circle),
+                ),
+                pw.Expanded(child: _labelled(line.trim())),
+              ],
+            ),
           ),
       ];
 
@@ -218,4 +229,17 @@ Future<pw.ImageProvider?> _photo(String? url) async {
   } catch (_) {
     return null;
   }
+}
+
+pw.Widget _labelled(String line) {
+  const style = pw.TextStyle(fontSize: 10);
+  final parts = splitLabel(line);
+  if (parts == null) return pw.Text(line, style: style);
+  return pw.RichText(
+    text: pw.TextSpan(style: style, children: [
+      pw.TextSpan(
+          text: parts.$1, style: pw.TextStyle(fontWeight: pw.FontWeight.bold)),
+      pw.TextSpan(text: parts.$2),
+    ]),
+  );
 }

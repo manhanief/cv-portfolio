@@ -6,21 +6,25 @@ const seedCv = CvData(
   profile: Profile(
     name: 'Esman Hanief',
     title: {
-      'en': 'IT, Software Dev, AI Engineer',
-      'ms': 'IT, Pembangun Perisian, Jurutera AI',
+      'en': 'IT Executive · IT Support & Infrastructure · System Developer',
+      'ms': 'Eksekutif IT · Sokongan & Infrastruktur IT · Pembangun Sistem',
     },
     summary: {
-      'en': 'IT Executive and System Developer at KPJ Rawang Specialist '
-          'Hospital, building internal web systems, Microsoft 365 automation '
-          'and AI-powered mobile apps for a regulated healthcare environment. '
-          'Completing a Bachelor of Computer Science at UiTM part-time '
-          'alongside full-time work.',
-      'ms': 'Eksekutif IT dan Pembangun Sistem di KPJ Rawang Specialist '
-          'Hospital, membina sistem web dalaman, automasi Microsoft 365 dan '
-          'aplikasi mudah alih berkuasa AI untuk persekitaran penjagaan '
-          'kesihatan yang dikawal selia. Sedang melengkapkan Ijazah Sarjana '
-          'Muda Sains Komputer di UiTM secara separuh masa sambil bekerja '
-          'sepenuh masa.',
+      'en': 'IT Executive at KPJ Rawang Specialist Hospital covering both '
+          'sides of hospital IT: keeping day-to-day operations running '
+          'through IT service management, asset management, LAN/WAN and '
+          'infrastructure support and IT reporting, and building the internal '
+          'web systems, Microsoft 365 automation and AI-powered mobile apps '
+          'used by 200+ staff. Completing a Bachelor of Computer Science at '
+          'UiTM part-time alongside full-time work.',
+      'ms': 'Eksekutif IT di KPJ Rawang Specialist Hospital yang merangkumi '
+          'kedua-dua aspek IT hospital: memastikan operasi harian berjalan '
+          'lancar melalui pengurusan perkhidmatan IT, pengurusan aset, '
+          'sokongan LAN/WAN dan infrastruktur serta laporan IT, di samping '
+          'membina sistem web dalaman, automasi Microsoft 365 dan aplikasi '
+          'mudah alih berkuasa AI yang digunakan oleh 200+ kakitangan. Sedang '
+          'melengkapkan Ijazah Sarjana Muda Sains Komputer di UiTM secara '
+          'separuh masa sambil bekerja sepenuh masa.',
     },
     location: 'Rawang, Selangor, Malaysia',
     email: 'hanief242@gmail.com',
@@ -38,57 +42,83 @@ const seedCv = CvData(
     Experience(
       id: 'kpj',
       role: {
-        'en': 'IT Executive / System Developer',
-        'ms': 'Eksekutif IT / Pembangun Sistem',
+        'en': 'IT Executive (IT Support & System Development)',
+        'ms': 'Eksekutif IT (Sokongan IT & Pembangunan Sistem)',
       },
       company: 'KPJ Rawang Specialist Hospital',
       location: 'Rawang, Selangor',
       start: '2023',
       description: {
-        'en': 'Architected and deployed 8+ internal web systems (staff '
-            'training, health screening, transport booking, event management) '
-            'serving 200+ hospital staff daily.\n'
-            'Re-engineered the hospital charge code approval process from a '
-            'legacy Excel/VBA workflow into a cloud-based multi-level system '
-            '(Power Automate, SharePoint Online, Excel Online, Teams/Outlook, '
-            'Entra ID) at zero additional cost under existing M365 E3 '
-            'licensing.\n'
-            'Eliminated critical security flaws (identity spoofing and '
-            'hardcoded credentials) by shifting approver authentication to '
-            'Entra ID verified sign-in; implemented sequential HOS → Finance → '
-            'CEO → IT routing with urgent-handling logic and an append-only '
-            'audit trail.\n'
-            'Built a License Tracker Power App (SharePoint Lists + Power '
-            'Automate) to automate software renewal reminders, removing manual '
-            'tracking dependency entirely.\n'
-            'Developed the Waste AI Detector mobile app (Flutter + Firebase + '
-            'HuggingFace ML) and the TSight staff training system (Laravel + '
-            'MySQL).\n'
-            'Managed LAN/intranet infrastructure and provided first- and '
-            'second-line IT support in a regulated healthcare environment.',
-        'ms': 'Mereka bentuk dan melancarkan 8+ sistem web dalaman (latihan '
-            'kakitangan, saringan kesihatan, tempahan pengangkutan, pengurusan '
-            'acara) yang digunakan oleh 200+ kakitangan hospital setiap hari.\n'
-            'Merekayasa semula proses kelulusan kod caj hospital daripada '
-            'aliran kerja Excel/VBA lama kepada sistem berbilang peringkat '
-            'berasaskan awan (Power Automate, SharePoint Online, Excel Online, '
-            'Teams/Outlook, Entra ID) tanpa kos tambahan di bawah lesen M365 '
-            'E3 sedia ada.\n'
-            'Menghapuskan kelemahan keselamatan kritikal (penyamaran identiti '
-            'dan kelayakan berkod keras) dengan memindahkan pengesahan pelulus '
-            'kepada log masuk Entra ID yang disahkan; melaksanakan penghalaan '
-            'berurutan HOS → Kewangan → CEO → IT dengan logik pengendalian kes '
-            'segera dan jejak audit tambah-sahaja.\n'
-            'Membina Power App License Tracker (SharePoint Lists + Power '
-            'Automate) untuk mengautomasikan peringatan pembaharuan lesen '
-            'perisian, menghapuskan kebergantungan pada penjejakan manual '
-            'sepenuhnya.\n'
-            'Membangunkan aplikasi mudah alih Waste AI Detector (Flutter + '
-            'Firebase + HuggingFace ML) dan sistem latihan kakitangan TSight '
-            '(Laravel + MySQL).\n'
-            'Mengurus infrastruktur LAN/intranet dan menyediakan sokongan IT '
-            'barisan pertama dan kedua dalam persekitaran penjagaan kesihatan '
-            'yang dikawal selia.',
+        'en': 'IT Service Management (ITSM): provided first- and second-line '
+            'support for hospital staff, handling incidents and service '
+            'requests end to end (logging, prioritisation, troubleshooting, '
+            'escalation to vendors and closure) in a regulated healthcare '
+            'environment.\n'
+            'IT Asset Management (ITAM): maintained the hardware and software '
+            'asset inventory across the lifecycle (deployment, transfer and '
+            'disposal) and tracked software licences and renewals, later '
+            'automated with a License Tracker Power App.\n'
+            'Infrastructure & networking: managed the hospital LAN/intranet '
+            'and supported WAN connectivity, network devices, end-user '
+            'computers, printers and peripherals, coordinating with vendors '
+            'and service providers on faults.\n'
+            'User & access administration: managed Microsoft 365 and Entra ID '
+            'accounts and access for onboarding, offboarding and day-to-day '
+            'requests.\n'
+            'IT reporting & documentation: prepared IT reports on support '
+            'activity, asset status and licence renewals for IT management, '
+            'and wrote technical documentation and user guides.\n'
+            'System development: architected and deployed 8+ internal web '
+            'systems (staff training, health screening, transport booking, '
+            'event management) serving 200+ hospital staff daily, plus the '
+            'Waste AI Detector mobile app (Flutter + Firebase + HuggingFace '
+            'ML).\n'
+            'Process re-engineering: moved the charge code approval process '
+            'from a legacy Excel/VBA workflow to a cloud-based multi-level '
+            'system (Power Automate, SharePoint Online, Excel Online, '
+            'Teams/Outlook, Entra ID) at zero additional cost under existing '
+            'M365 E3 licensing.\n'
+            'Security: eliminated identity spoofing and hardcoded credentials '
+            'by moving approver authentication to Entra ID verified sign-in, '
+            'with sequential HOS → Finance → CEO → IT routing, urgent-handling '
+            'logic and an append-only audit trail.',
+        'ms': 'Pengurusan Perkhidmatan IT (ITSM): menyediakan sokongan '
+            'barisan pertama dan kedua kepada kakitangan hospital, '
+            'mengendalikan insiden dan permintaan perkhidmatan dari awal '
+            'hingga akhir (pendaftaran, keutamaan, penyelesaian masalah, '
+            'eskalasi kepada vendor dan penutupan) dalam persekitaran '
+            'penjagaan kesihatan yang dikawal selia.\n'
+            'Pengurusan Aset IT (ITAM): menyelenggara inventori aset '
+            'perkakasan dan perisian sepanjang kitar hayat (pemasangan, '
+            'pemindahan dan pelupusan) serta menjejak lesen perisian dan '
+            'pembaharuannya, yang kemudian diautomasikan dengan Power App '
+            'License Tracker.\n'
+            'Infrastruktur & rangkaian: mengurus LAN/intranet hospital dan '
+            'menyokong sambungan WAN, peranti rangkaian, komputer pengguna, '
+            'pencetak dan periferal, serta berhubung dengan vendor dan '
+            'penyedia perkhidmatan bagi kerosakan.\n'
+            'Pentadbiran pengguna & akses: mengurus akaun dan akses Microsoft '
+            '365 serta Entra ID bagi kemasukan, keluar dan permintaan '
+            'harian.\n'
+            'Laporan & dokumentasi IT: menyediakan laporan IT tentang '
+            'aktiviti sokongan, status aset dan pembaharuan lesen untuk '
+            'pengurusan IT, serta menulis dokumentasi teknikal dan panduan '
+            'pengguna.\n'
+            'Pembangunan sistem: mereka bentuk dan melancarkan 8+ sistem web '
+            'dalaman (latihan kakitangan, saringan kesihatan, tempahan '
+            'pengangkutan, pengurusan acara) yang digunakan oleh 200+ '
+            'kakitangan hospital setiap hari, serta aplikasi mudah alih Waste '
+            'AI Detector (Flutter + Firebase + HuggingFace ML).\n'
+            'Kejuruteraan semula proses: memindahkan proses kelulusan kod caj '
+            'daripada aliran kerja Excel/VBA lama kepada sistem berbilang '
+            'peringkat berasaskan awan (Power Automate, SharePoint Online, '
+            'Excel Online, Teams/Outlook, Entra ID) tanpa kos tambahan di '
+            'bawah lesen M365 E3 sedia ada.\n'
+            'Keselamatan: menghapuskan penyamaran identiti dan kelayakan '
+            'berkod keras dengan memindahkan pengesahan pelulus kepada log '
+            'masuk Entra ID yang disahkan, dengan penghalaan berurutan HOS → '
+            'Kewangan → CEO → IT, logik kes segera dan jejak audit '
+            'tambah-sahaja.',
       },
     ),
   ],
@@ -137,6 +167,23 @@ const seedCv = CvData(
   ],
   skills: [
     SkillGroup(
+      id: 'itsupport',
+      category: {
+        'en': 'IT Support & Infrastructure',
+        'ms': 'Sokongan & Infrastruktur IT',
+      },
+      items: [
+        'ITSM (Incident & Service Requests)',
+        'ITAM (Asset & Licence Management)',
+        'LAN / WAN',
+        'Network Troubleshooting',
+        'Hardware & Peripheral Support',
+        'M365 / Entra ID Administration',
+        'IT Reporting',
+        'Technical Documentation',
+      ],
+    ),
+    SkillGroup(
       id: 'lang',
       category: {'en': 'Languages', 'ms': 'Bahasa Pengaturcaraan'},
       items: ['PHP', 'JavaScript', 'Dart (Flutter)', 'HTML5', 'CSS3'],
@@ -172,19 +219,14 @@ const seedCv = CvData(
     SkillGroup(
       id: 'domain',
       category: {'en': 'Domain', 'ms': 'Domain'},
-      items: [
-        'Healthcare IT',
-        'LAN Infrastructure',
-        'IT Support',
-        'Process Re-engineering',
-      ],
+      items: ['Healthcare IT', 'Process Re-engineering'],
     ),
     SkillGroup(
       id: 'soft',
       category: {'en': 'Soft Skills', 'ms': 'Kemahiran Insaniah'},
       items: [
         'Stakeholder Communication',
-        'Technical Documentation',
+        'User Support & Training',
         'Problem-Solving',
         'Bilingual (Malay / English)',
       ],

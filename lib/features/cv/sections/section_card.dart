@@ -28,7 +28,9 @@ class SectionCard extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    if (isEmpty && !ref.watch(isEditingProvider)) return const SizedBox.shrink();
+    if (isEmpty && !ref.watch(isEditingProvider)) {
+      return const SizedBox.shrink();
+    }
     final theme = Theme.of(context);
     return Padding(
       padding: const EdgeInsets.only(bottom: 16),
@@ -45,8 +47,9 @@ class SectionCard extends ConsumerWidget {
                   Expanded(
                     child: Text(
                       title,
-                      style: theme.textTheme.titleMedium
-                          ?.copyWith(fontWeight: FontWeight.w700),
+                      style: theme.textTheme.titleMedium?.copyWith(
+                        fontWeight: FontWeight.w700,
+                      ),
                     ),
                   ),
                 ],
@@ -75,11 +78,36 @@ Widget bulletList(BuildContext context, String text) {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text('•  ', style: style),
-              Expanded(child: Text(line.trim(), style: style)),
+              Expanded(child: _labelledLine(line.trim(), style)),
             ],
           ),
         ),
     ],
+  );
+}
+
+/// Splits "Label: text" into a short leading label and the rest.
+(String, String)? splitLabel(String line) {
+  final i = line.indexOf(': ');
+  return i > 0 && i <= 40
+      ? (line.substring(0, i + 1), line.substring(i + 1))
+      : null;
+}
+
+Widget _labelledLine(String line, TextStyle? style) {
+  final parts = splitLabel(line);
+  if (parts == null) return Text(line, style: style);
+  return Text.rich(
+    TextSpan(
+      children: [
+        TextSpan(
+          text: parts.$1,
+          style: const TextStyle(fontWeight: FontWeight.w700),
+        ),
+        TextSpan(text: parts.$2),
+      ],
+    ),
+    style: style,
   );
 }
 
@@ -91,8 +119,8 @@ Future<void> openUrl(String url) async {
 extension CvEdits on WidgetRef {
   CvController get cv => read(cvControllerProvider.notifier);
 
-  void updateProfile(Profile Function(Profile p) change) => cv.edit(
-      CvField.profile, (d) => d.copyWith(profile: change(d.profile)));
+  void updateProfile(Profile Function(Profile p) change) =>
+      cv.edit(CvField.profile, (d) => d.copyWith(profile: change(d.profile)));
 }
 
 /// True when every language value is empty.
